@@ -339,7 +339,7 @@
               {% if calico_advertise_cluster_ips | default(false) %}
               "serviceClusterIPs":
                 {%- if ipv4_stack and ipv6_stack-%}
-                [{"cidr": "{{ kube_service_addresses }}", "cidr": "{{ kube_service_addresses_ipv6 }}"}],
+                [{"cidr": "{{ kube_service_addresses }}"}, {"cidr": "{{ kube_service_addresses_ipv6 }}"}],
                 {%- elif ipv6_stack-%}
                 [{"cidr": "{{ kube_service_addresses_ipv6 }}"}],
                 {%- else -%}
